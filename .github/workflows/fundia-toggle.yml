@@ -1,0 +1,42 @@
+name: FUNDIA 表示切替
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "off = 非表示 / on = 表示"
+        required: true
+        default: "off"
+        type: choice
+        options:
+          - "off"
+          - "on"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: fundia-toggle
+
+jobs:
+  toggle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 切替
+        run: python3 tools/fundia_toggle.py "${{ inputs.mode }}"
+      - name: コミットして公開
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898341+github-actions[bot]@users.noreply.github.com"
+          git add index.html sumusumu/index.html
+          if git diff --cached --quiet; then
+            echo "変更なし"
+          else
+            git commit -m "FUNDIA 表示: ${{ inputs.mode }}"
+            git push
+          fi
+          gh workflow run pages.yml --ref main

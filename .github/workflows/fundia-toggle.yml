@@ -39,4 +39,5 @@ jobs:
             git commit -m "FUNDIA 表示: ${{ inputs.mode }}"
             git push
           fi
+          sleep 15  # push 直後だと公開が古いコミットを拾うことがあるため
           gh workflow run pages.yml --ref main

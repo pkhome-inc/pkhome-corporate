@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-fundia="off">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="PKHOME株式会社 — 最新のAIで住まいの当たり前を更新する不動産テック企業。賃貸管理のAI運営「すむすむ」、不動産クラウドファンディング「FUNDIA」。">
+<!-- FUNDIA ON時の description: PKHOME株式会社 — 最新のAIで住まいの当たり前を更新する不動産テック企業。賃貸管理のAI運営「すむすむ」、不動産クラウドファンディング「FUNDIA」。 -->
+<meta name="description" content="PKHOME株式会社 — 最新のAIで住まいの当たり前を更新する不動産テック企業。賃貸管理のAI運営「すむすむ」。">
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#0E0E0E">
 <title>PKHOME</title>
@@ -480,6 +481,16 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
   .who,.loop,.decide{background:var(--line)!important}
 }
 </style>
+<!-- FUNDIA 表示スイッチ（2026-11-26）
+     <html data-fundia="off"> = FUNDIA 部分を非表示 / "on" = 表示
+     切替: GitHub の Actions「FUNDIA 表示切替」で off / on を選んで実行（tools/fundia_toggle.py）
+     確認用: URL に ?fundia=1 を付けると、その場だけ表示される -->
+<style>
+html[data-fundia="off"] [data-fundia]{display:none!important}
+html:not([data-fundia="off"]) [data-fundia-alt]{display:none!important}
+html[data-fundia="off"] .pillars{grid-template-columns:1fr}
+</style>
+<script>(function(){try{if(/[?&]fundia=1(&|$)/.test(location.search))document.documentElement.setAttribute('data-fundia','on')}catch(e){}})();</script>
 </head>
 <body>
 
@@ -494,7 +505,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
     <ul>
       <li><a href="#business">Business</a></li>
       <li><a href="/sumusumu/">すむすむ</a></li>
-      <li><a href="https://fundia.net" target="_blank" rel="noopener">FUNDIA</a></li>
+      <li data-fundia><a href="https://fundia.net" target="_blank" rel="noopener">FUNDIA</a></li>
       <li><a href="#team">Team</a></li>
       <li><a href="#company">Company</a></li>
     </ul>
@@ -533,7 +544,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
         <span class="line"><span>住まいの当たり前を、</span></span>
         <span class="line"><span><em>更新</em>する。</span></span>
       </h1>
-      <p class="rise" style="animation-delay:1.3s">PKHOMEは、最新のAIで住まいの当たり前を更新する不動産テック企業です。賃貸管理会社をAIで運営する「すむすむ」と、一口五万円からの不動産投資「FUNDIA」。日々の業務をAIに置き換え、人は人にしかできない仕事へ。</p>
+      <p class="rise" style="animation-delay:1.3s">PKHOMEは、最新のAIで住まいの当たり前を更新する不動産テック企業です。賃貸管理会社をAIで運営する「すむすむ」<span data-fundia>と、一口五万円からの不動産投資「FUNDIA」</span>。日々の業務をAIに置き換え、人は人にしかできない仕事へ。</p>
       <div class="hero-actions rise" style="animation-delay:1.5s">
         <a class="btn fill" href="#business" data-magnet><span>事業を見る</span></a>
         <a class="btn" href="#contact" data-magnet><span>お問い合わせ</span></a>
@@ -541,7 +552,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
     </div>
     <div class="hero-axes rise" style="animation-delay:1.7s">
       <a href="/sumusumu/"><b><span class="slogo">すむすむ</span></b><span>Property management</span></a>
-      <a class="en" href="https://fundia.net" target="_blank" rel="noopener"><b>FUNDIA</b><span>Real estate crowdfunding</span></a>
+      <a class="en" data-fundia href="https://fundia.net" target="_blank" rel="noopener"><b>FUNDIA</b><span>Real estate crowdfunding</span></a>
     </div>
   </div>
   <div class="scroll-cue"><i></i>Scroll</div>
@@ -549,7 +560,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
 
 <div class="marquee" aria-hidden="true">
   <div class="track" id="mq">
-    <span>Property management, <em>re-engineered</em></span><span>AI-native <em>operations</em></span><span>Succession of <em>local agencies</em></span><span>FUNDIA — <em>from ¥50,000</em></span><span>Real Estate × <em>Finance</em></span>
+    <span>Property management, <em>re-engineered</em></span><span>AI-native <em>operations</em></span><span>Succession of <em>local agencies</em></span><span data-fundia>FUNDIA — <em>from ¥50,000</em></span><span>Real Estate × <em>Finance</em></span>
   </div>
 </div>
 
@@ -557,7 +568,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
   <div class="wrap">
     <div class="sec-head">
       <div><div class="num" aria-hidden="true">01</div><div class="label" style="margin-top:16px">Business</div></div>
-      <div><h2 class="h2 mask reveal-h"><span>ふたつの事業</span></h2><p class="lead reveal">運営する側と、投資する側。不動産の両端に、PKHOMEは立ちます。</p></div>
+      <div data-fundia><h2 class="h2 mask reveal-h"><span>ふたつの事業</span></h2><p class="lead reveal">運営する側と、投資する側。不動産の両端に、PKHOMEは立ちます。</p></div><div data-fundia-alt><h2 class="h2 mask reveal-h"><span>私たちの事業</span></h2><p class="lead reveal">管理会社を引き継ぎ、AIで運営する。住まいの現場から、当たり前を更新します。</p></div>
     </div>
     <div class="pillars reveal">
       <a class="pillar" href="/sumusumu/">
@@ -565,7 +576,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
         <div><div class="kicker">01 — For owners &amp; residents</div><h3><span class="slogo">すむすむ</span></h3><div class="sub">AI-native property management</div><p>後継者不在の賃貸管理会社を引き継ぎ、AIで運営し、効率化する。</p></div>
         <span class="link">すむすむ 事業ページ</span>
       </a>
-      <a class="pillar" href="https://fundia.net" target="_blank" rel="noopener">
+      <a class="pillar" data-fundia href="https://fundia.net" target="_blank" rel="noopener">
         <div class="art" aria-hidden="true"><svg viewBox="0 0 400 400"><circle class="f" cx="220" cy="200" r="140"/><circle class="l" cx="220" cy="200" r="140"/><circle class="l" cx="220" cy="200" r="100"/><circle class="l" cx="220" cy="200" r="60"/><path class="l" d="M220 60 V340 M80 200 H360"/></svg></div>
         <div><div class="kicker">02 — For investors</div><h3 class="en">FUNDIA</h3><div class="sub">Real estate crowdfunding</div><p>厳選した不動産に、一口五万円から。優先劣後方式で運営会社も同じファンドにリスクを負う、個人投資家のための不動産クラウドファンディングです。</p></div>
         <span class="link">Visit fundia.net</span>
@@ -595,7 +606,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
   </div>
 </section>
 
-<section class="light" id="fundia">
+<section class="light" id="fundia" data-fundia>
   <div class="wrap">
     <div class="feature solo">
       <div>
@@ -669,11 +680,11 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
       <dl>
         <div><dt>Name</dt><dd>PKHOME株式会社（パークホーム）</dd></div>
         <div><dt>Corporate No.</dt><dd>法人番号　5011001179818</dd></div>
-        <div><dt>Business</dt><dd>賃貸管理事業「すむすむ」（管理会社の事業承継・AI運営）／不動産クラウドファンディング「FUNDIA」の運営／不動産の売買・仲介・管理</dd></div>
+        <div><dt>Business</dt><dd>賃貸管理事業「すむすむ」（管理会社の事業承継・AI運営）<span data-fundia>／不動産クラウドファンディング「FUNDIA」の運営</span>／不動産の売買・仲介・管理</dd></div>
         <div><dt>Founded</dt><dd>2026年8月21日</dd></div>
         <div><dt>Address</dt><dd>〒151-0051　東京都渋谷区千駄ケ谷3丁目61-3-408</dd></div>
         <div><dt>Board</dt><dd>代表取締役CEO　工藤 拓也</dd></div>
-        <div><dt>License</dt><dd>宅地建物取引業免許・賃貸住宅管理業登録・不動産特定共同事業許可　いずれも申請準備中（取得後に掲載）</dd></div>
+        <div><dt>License</dt><dd>宅地建物取引業免許・賃貸住宅管理業登録<span data-fundia>・不動産特定共同事業許可</span>　いずれも申請準備中（取得後に掲載）</dd></div>
         <div><dt>Contact</dt><dd>info@pkhome.co.jp</dd></div>
       </dl>
     </div>
@@ -691,7 +702,7 @@ footer{background:var(--dark);color:var(--on-dark-2);padding:96px 0 0;font-size:
       </div>
       <div>
         <div class="ttl">Business</div>
-        <ul><li><a href="/sumusumu/">すむすむ</a></li><li><a href="/sumusumu/#succession">承継について</a></li><li><a href="/sumusumu/#faq">よくあるご質問</a></li><li><a href="https://fundia.net" target="_blank" rel="noopener">FUNDIA</a></li></ul>
+        <ul><li><a href="/sumusumu/">すむすむ</a></li><li><a href="/sumusumu/#succession">承継について</a></li><li><a href="/sumusumu/#faq">よくあるご質問</a></li><li data-fundia><a href="https://fundia.net" target="_blank" rel="noopener">FUNDIA</a></li></ul>
       </div>
       <div>
         <div class="ttl">Company</div>

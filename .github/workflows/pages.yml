@@ -26,5 +26,7 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+      # artifact が API から見えるまで少し待つ（2026-11-26 "No artifacts named github-pages" 対策）
+      - run: sleep 30
       - id: deployment
         uses: actions/deploy-pages@v4
